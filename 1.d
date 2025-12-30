@@ -1,9 +1,11 @@
 import cv2
 import matplotlib.pyplot as plt
+import numpy as np
 
-img = cv2.imread("lab3.png", 0)   # read in grayscale
-edges = cv2.Canny(img, 100, 200)
+img = cv2.imread("lab4.png", 0)
+kernel = np.ones((5,5), np.uint8)
+dilate = cv2.dilate(img, kernel, iterations=1)
 
-plt.imshow(edges, cmap='gray')
+plt.imshow(dilate, cmap='gray')
 plt.axis('off')
 plt.show()
